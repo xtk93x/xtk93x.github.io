@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css" />
+	<script src="leaflet-tilelayer-colorfilter.min.js"></script>
+	<link rel="stylesheet" href="demo.css" />
+</head>
+
+<body>
+	<div id="container">
+		<div id="map-default" class="map-size"></div>
+		<div id="map-dark" class="map-size"></div>
+		<div id="map-colorized" class="map-size"></div>
+		<div id="map-dark-2" class="map-size"></div>
+		<div id="map-colorized-2" class="map-size"></div>
+		<div id="map-dark-colorized" class="map-size"></div>
+	</div>
+	<div id="container-settings">
+		<div class="map-size card-container">
+			<div class="card">
+				<div class="default">Default Map</div>
+			</div>
+		</div>
+		<div class="map-size card-container">
+			<div class="card">
+				<span class="declare">let</span> myFilter = [
+				<br>
+				<span class="string">'grayscale:100%'</span>,
+				<br>
+				<span class="string">'invert:100%'</span>,
+				<br> ]
+			</div>
+		</div>
+		<div class="map-size card-container">
+			<div class="card">
+				<span class="declare">let</span> myFilter = [
+				<br>
+				<span class="string">'invert:30%'</span>,
+				<br>
+				<span class="string">'hue:130deg'</span>,
+				<br>
+				<span class="string">'saturate:700%'</span>,
+				<br>
+				<span class="string">'brightness:90%'</span>,
+				<br>
+				<span class="string">'contrast:200%'</span>,
+				<br> ]
+			</div>
+		</div>
+		<div class="map-size card-container">
+			<div class="card">
+				<span class="declare">let</span> myFilter = [
+				<br>
+				<span class="string">'brightness:95%'</span>,
+				<br>
+				<span class="string">'contrast:130%'</span>,
+				<br>
+				<span class="string">'hue:290deg'</span>,
+				<br>
+				<span class="string">'invert:100%'</span>,
+				<br>
+				<span class="string">'saturate:300%'</span>,
+				<br> ]
+			</div>
+		</div>
+		<div class="map-size card-container">
+			<div class="card">
+				<span class="declare">let</span> myFilter = [
+				<br>
+				<span class="string">'brightness:110%'</span>,
+				<br>
+				<span class="string">'hue:90deg'</span>,
+				<br>
+				<span class="string">'saturate:120%'</span>,
+				<br> ]
+			</div>
+		</div>
+		<div class="map-size card-container">
+			<div class="card">
+				<span class="declare">let</span> myFilter = [
+				<br>
+				<span class="string">'hue:185deg'</span>,
+				<br>
+				<span class="string">'invert:100%'</span>,
+				<br> ]
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="demo.js"></script>
+
+</html>
