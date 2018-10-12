@@ -5,14 +5,39 @@ let tileLayer = L.tileLayer.colorFilter('https://maps.wikimedia.org/osm-intl/{z}
     filter: []
 }).addTo(map);
 
+let blur = '0px';
+let opacity = '100%';
 let invert = '0%';
 let bright = '100%';
+let contrast = '100%';
 let gray = '0%';
 let hue = '0deg';
+let saturate = '100%';
+let sepia = '0%';
 
 let updateMyTiles = function () {
-    tileLayer.updateFilter([`grayscale:${gray}`, `invert:${invert}`, `bright:${bright}`, `hue:${hue}`]);
+    tileLayer.updateFilter([
+        `blur:${blur}`, 
+        `grayscale:${gray}`, 
+        `invert:${invert}`, 
+        `bright:${bright}`, 
+        `contrast:${contrast}`, 
+        `hue:${hue}`,
+        `opacity:${opacity}`, 
+        `saturate:${saturate}`,
+        `sepia:${sepia}`,
+    ]);
 }
+
+/* Blur slider */
+let blurSlider = document.getElementById('blur-slider');
+let blurLabel = document.getElementById('blur-value');
+blurSlider.addEventListener('input', function (e) {
+    let value = e.target.value;
+    blurLabel.textContent = value + 'px';
+    blur = value + 'px';
+    updateMyTiles();
+});
 
 /* Invert slider */
 let invertSlider = document.getElementById('invert-slider');
@@ -44,6 +69,16 @@ brightnessSlider.addEventListener('input', function (e) {
     updateMyTiles();
 });
 
+/* Contrast Slider */
+let contrastSlider = document.getElementById('contrast-slider');
+let contrastLabel = document.getElementById('contrast-value');
+contrastSlider.addEventListener('input', function (e) {
+    let value = e.target.value;
+    contrastLabel.textContent = value + '%';
+    contrast = value + '%';
+    updateMyTiles();
+});
+
 /* Hue Slider */
 let hueSlider = document.getElementById('hue-slider');
 let hueLabel = document.getElementById('hue-value');
@@ -51,5 +86,35 @@ hueSlider.addEventListener('input', function (e) {
     let value = e.target.value;
     hueLabel.textContent = value + 'deg';
     hue = value + 'deg';
+    updateMyTiles();
+});
+
+/* Opacity Slider */
+let opacitySlider = document.getElementById('opacity-slider');
+let opacityLabel = document.getElementById('opacity-value');
+opacitySlider.addEventListener('input', function (e) {
+    let value = e.target.value;
+    opacityLabel.textContent = value + '%';
+    opacity = value + '%';
+    updateMyTiles();
+});
+
+/* Saturate Slider */
+let saturateSlider = document.getElementById('saturate-slider');
+let saturateLabel = document.getElementById('saturate-value');
+saturateSlider.addEventListener('input', function (e) {
+    let value = e.target.value;
+    saturateLabel.textContent = value + '%';
+    saturate = value + '%';
+    updateMyTiles();
+});
+
+/* Sepia Slider */
+let sepiaSlider = document.getElementById('sepia-slider');
+let sepiaLabel = document.getElementById('sepia-value');
+sepiaSlider.addEventListener('input', function (e) {
+    let value = e.target.value;
+    sepiaLabel.textContent = value + '%';
+    sepia = value + '%';
     updateMyTiles();
 });

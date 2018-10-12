@@ -12,6 +12,12 @@
 	<div id="map"></div>
 	<div id="sliders-container">
 		<div id="slider">
+			<span>Blur:</span>
+			<span id='blur-value'>0px</span>
+			<br/>
+			<input type="range" min="0" max="20" value="0" id="blur-slider">
+		</div>
+		<div id="slider">
 			<span>Invert:</span>
 			<span id='invert-value'>0%</span>
 			<br/>
@@ -30,10 +36,34 @@
 			<input type="range" min="0" max="200" value="100" id="brightness-slider">
 		</div>
 		<div id="slider">
+			<span>Contrast:</span>
+			<span id='contrast-value'>100%</span>
+			<br/>
+			<input type="range" min="0" max="200" value="100" id="contrast-slider">
+		</div>
+		<div id="slider">
 			<span>Hue-Rotate:</span>
 			<span id='hue-value'>0deg</span>
 			<br/>
 			<input type="range" min="0" max="359" value="0" id="hue-slider">
+		</div>
+		<div id="slider">
+			<span>Opacity:</span>
+			<span id='opacity-value'>100%</span>
+			<br/>
+			<input type="range" min="0" max="100" value="100" id="opacity-slider">
+		</div>
+		<div id="slider">
+			<span>Saturate:</span>
+			<span id='saturate-value'>100%</span>
+			<br/>
+			<input type="range" min="0" max="1000" value="100" id="saturate-slider">
+		</div>
+		<div id="slider">
+			<span>Sepia:</span>
+			<span id='sepia-value'>0%</span>
+			<br/>
+			<input type="range" min="0" max="100" value="0" id="sepia-slider">
 		</div>
 	</div>
 </body>
