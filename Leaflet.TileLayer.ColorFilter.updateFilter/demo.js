@@ -6,7 +6,7 @@ let darkTileLayer = L.tileLayer.colorFilter('https://maps.wikimedia.org/osm-intl
 }).addTo(darkMap);
 
 
-let invert = '100%';
+let invert = '0%';
 let bright = '100%';
 let gray = '0%';
 let hue = '0deg';
