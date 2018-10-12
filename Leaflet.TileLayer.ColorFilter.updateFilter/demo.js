@@ -1,10 +1,9 @@
-let darkMap = L.map('map').setView([51.505, -0.09], 14);
+let map = L.map('map').setView([51.505, -0.09], 14);
 
-let darkTileLayer = L.tileLayer.colorFilter('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+let tileLayer = L.tileLayer.colorFilter('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
     attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia</a>',
     filter: []
-}).addTo(darkMap);
-
+}).addTo(map);
 
 let invert = '0%';
 let bright = '100%';
@@ -12,7 +11,7 @@ let gray = '0%';
 let hue = '0deg';
 
 let updateMyTiles = function () {
-    darkTileLayer.updateFilter([`grayscale:${gray}`, `invert:${invert}`, `bright:${bright}`, `hue:${hue}`]);
+    tileLayer.updateFilter([`grayscale:${gray}`, `invert:${invert}`, `bright:${bright}`, `hue:${hue}`]);
 }
 
 /* Invert slider */
