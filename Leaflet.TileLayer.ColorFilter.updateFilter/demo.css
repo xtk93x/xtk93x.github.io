@@ -1,54 +1,23 @@
 body {
     margin: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 14px;
+    font-size: 18px;
 }
 
-#container {
+#map {
+    height: 100vh;
+    width: 100%;
+}
+#sliders-container {
     display: flex;
-    flex-wrap: wrap;
-}
-
-.map-size {
-    height: 50vh;
-    width: 33.333%;
-}
-
-#container-settings {
-    display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
     position: absolute;
     top: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
     z-index: 9999;
-    pointer-events: none;
-}
-
-.card-container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-}
-
-.card {
-    padding: 5px;
+    margin: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 5px;
-    margin: 15px;
-    background: rgba(0, 0, 0, 0.795);
-    color: rgb(255, 255, 255);
-    pointer-events: all;
-}
-
-.default {
-    text-align: center;
-}
-
-.declare {
-    color: rgb(36, 138, 255);
-}
-
-.string {
-    color: rgb(107, 221, 0);
-    padding-left: 20px;
 }

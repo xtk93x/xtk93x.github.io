@@ -9,83 +9,31 @@
 </head>
 
 <body>
-	<div id="container">
-		<div id="map-default" class="map-size"></div>
-		<div id="map-dark" class="map-size"></div>
-		<div id="map-colorized" class="map-size"></div>
-		<div id="map-dark-2" class="map-size"></div>
-		<div id="map-colorized-2" class="map-size"></div>
-		<div id="map-dark-colorized" class="map-size"></div>
-	</div>
-	<div id="container-settings">
-		<div class="map-size card-container">
-			<div class="card">
-				<div class="default">Default Map</div>
-			</div>
+	<div id="map"></div>
+	<div id="sliders-container">
+		<div id="slider">
+			<span>Invert:</span>
+			<span id='invert-value'>0%</span>
+			<br/>
+			<input type="range" min="0" max="100" value="0" id="invert-slider">
 		</div>
-		<div class="map-size card-container">
-			<div class="card">
-				<span class="declare">let</span> myFilter = [
-				<br>
-				<span class="string">'grayscale:100%'</span>,
-				<br>
-				<span class="string">'invert:100%'</span>,
-				<br> ]
-			</div>
+		<div id="slider">
+			<span>Grayscale:</span>
+			<span id='grayscale-value'>0%</span>
+			<br/>
+			<input type="range" min="0" max="100" value="0" id="grayscale-slider">
 		</div>
-		<div class="map-size card-container">
-			<div class="card">
-				<span class="declare">let</span> myFilter = [
-				<br>
-				<span class="string">'invert:30%'</span>,
-				<br>
-				<span class="string">'hue:130deg'</span>,
-				<br>
-				<span class="string">'saturate:700%'</span>,
-				<br>
-				<span class="string">'brightness:90%'</span>,
-				<br>
-				<span class="string">'contrast:200%'</span>,
-				<br> ]
-			</div>
+		<div id="slider">
+			<span>Brightness:</span>
+			<span id='brightness-value'>100%</span>
+			<br/>
+			<input type="range" min="0" max="200" value="100" id="brightness-slider">
 		</div>
-		<div class="map-size card-container">
-			<div class="card">
-				<span class="declare">let</span> myFilter = [
-				<br>
-				<span class="string">'brightness:95%'</span>,
-				<br>
-				<span class="string">'contrast:130%'</span>,
-				<br>
-				<span class="string">'hue:290deg'</span>,
-				<br>
-				<span class="string">'invert:100%'</span>,
-				<br>
-				<span class="string">'saturate:300%'</span>,
-				<br> ]
-			</div>
-		</div>
-		<div class="map-size card-container">
-			<div class="card">
-				<span class="declare">let</span> myFilter = [
-				<br>
-				<span class="string">'brightness:110%'</span>,
-				<br>
-				<span class="string">'hue:90deg'</span>,
-				<br>
-				<span class="string">'saturate:120%'</span>,
-				<br> ]
-			</div>
-		</div>
-		<div class="map-size card-container">
-			<div class="card">
-				<span class="declare">let</span> myFilter = [
-				<br>
-				<span class="string">'hue:185deg'</span>,
-				<br>
-				<span class="string">'invert:100%'</span>,
-				<br> ]
-			</div>
+		<div id="slider">
+			<span>Hue-Rotate:</span>
+			<span id='hue-value'>0deg</span>
+			<br/>
+			<input type="range" min="0" max="359" value="0" id="hue-slider">
 		</div>
 	</div>
 </body>
