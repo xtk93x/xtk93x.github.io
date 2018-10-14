@@ -17,10 +17,8 @@ let sepia = '0%';
 
 let updateMyTiles = function () {
     tileLayer.updateFilter([
-        `blur:${blur}`, 
-        `grayscale:${gray}`, 
-        `invert:${invert}`, 
-        `bright:${bright}`, 
+
+        `sepia:${sepia}`,
     ]);
 }
 
