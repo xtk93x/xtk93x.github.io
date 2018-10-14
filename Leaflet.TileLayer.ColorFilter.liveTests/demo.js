@@ -16,10 +16,7 @@ let saturate = '100%';
 let sepia = '0%';
 
 let updateMyTiles = function () {
-    tileLayer.updateFilter([
 
-        `sepia:${sepia}`,
-    ]);
 }
 
 /* Blur slider */
