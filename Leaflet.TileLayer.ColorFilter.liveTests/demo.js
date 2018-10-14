@@ -2,7 +2,7 @@ let map = L.map('map').setView([51.505, -0.09], 14);
 
 let tileLayer = L.tileLayer.colorFilter('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
     attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia</a>',
-    filter: ['sepia:100%']
+    filter: []
 }).addTo(map);
 
 let blur = '0px';
@@ -16,7 +16,17 @@ let saturate = '100%';
 let sepia = '0%';
 
 let updateMyTiles = function () {
-
+    tileLayer.updateFilter([
+        `blur:${blur}`, 
+        `grayscale:${gray}`, 
+        `invert:${invert}`, 
+        `bright:${bright}`, 
+        `contrast:${contrast}`, 
+        `hue:${hue}`,
+        `opacity:${opacity}`, 
+        `saturate:${saturate}`,
+        `sepia:${sepia}`,
+    ]);
 }
 
 /* Blur slider */
