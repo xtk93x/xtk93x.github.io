@@ -21,11 +21,6 @@ let updateMyTiles = function () {
         `grayscale:${gray}`, 
         `invert:${invert}`, 
         `bright:${bright}`, 
-        `contrast:${contrast}`, 
-        `hue:${hue}`,
-        `opacity:${opacity}`, 
-        `saturate:${saturate}`,
-        `sepia:${sepia}`,
     ]);
 }
 
