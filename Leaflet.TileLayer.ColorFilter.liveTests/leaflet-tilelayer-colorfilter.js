@@ -4,19 +4,14 @@
   A simple and lightweight Leaflet plugin to apply CSS filters on map tiles.
   https://github.com/xtk93x/Leaflet.TileLayer.ColorFilter
 */
-/*
-  Leaflet.TileLayer.ColorFilter
-  (c) 2018, Claudio T. Kawakani
-  A simple and lightweight Leaflet plugin to apply CSS filters on map tiles.
-  https://github.com/xtk93x/Leaflet.TileLayer.ColorFilter
-*/
 L.TileLayer.ColorFilter = L.TileLayer.extend({
 	filterSettings: '',
-	intialize: function (url, options) {
-		L.TileLayer.prototype.initialize.call(this, url, options);
+	_initContainer: function () {
+		L.TileLayer.prototype._initContainer.call(this);
 		this.parseFilter();
 	},
 	parseFilter: function () {
+		console.log('parsing');
 		let VALIDFILTERS = [
 			'blur:px',
 			'brightness:%', 'bright:brightness:%', 'bri:brightness:%',
@@ -27,8 +22,7 @@ L.TileLayer.ColorFilter = L.TileLayer.extend({
 			'opacity:%', 'op:opacity:%',
 			'saturate:%', 'saturation:saturate:%', 'sat:saturate:%',
 			'sepia:%', 'sep:sepia:%',
-		]
-
+		];
 		let colorFilterOptions = this.options.filter ? this.options.filter : [];
 		let filterSettings = colorFilterOptions.map((opt) => {
 			let filter = opt.toLowerCase().split(':');
