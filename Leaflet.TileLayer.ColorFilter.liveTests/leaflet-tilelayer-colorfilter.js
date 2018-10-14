@@ -6,9 +6,9 @@
 */
 L.TileLayer.ColorFilter = L.TileLayer.extend({
 	filterSettings: '',
-	_initContainer: function () {
-		L.TileLayer.prototype._initContainer.call(this);
-		this.parseFilter();
+	onAdd: function (map) {
+		L.TileLayer.prototype.onAdd.call(this, map);
+		this.updateView();
 	},
 	parseFilter: function () {
 		console.log('parsing');
@@ -54,17 +54,22 @@ L.TileLayer.ColorFilter = L.TileLayer.extend({
 	},
 	updateFilter: function (newFilter) {
 		this.options.filter = newFilter;
-		this.parseFilter();
-		for (let [key, value] of Object.entries(this._tiles)) {
-			if (L.version === "0.7.7") {
-				/* Version 0.7.7 */
-				value.style.filter = this.filterSettings;
-			} else {
-				/* Version 1.3.4 */
-				value.el.style.filter = this.filterSettings;
+		this.updateView();
+	},
+	updateView: function () {
+		if (this._container) {
+			this.parseFilter();
+			for (let [key, value] of Object.entries(this._tiles)) {
+				if (L.version === "0.7.7") {
+					/* Version 0.7.7 */
+					value.style.filter = this.filterSettings;
+				} else {
+					/* Version 1.3.4 */
+					value.el.style.filter = this.filterSettings;
+				}
 			}
 		}
-	},
+	}
 })
 
 L.tileLayer.colorFilter = function (url, options) {
