@@ -10812,8 +10812,8 @@ var GridLayer = Layer.extend({
 			this._updateOpacity();
 		}
 
-		this._container.style.filter = "grayscale(100%) invert(100%) brightness(40%) contrast(130%) sepia(40%) hue-rotate(120deg) blur(1px)";
-		
+		this._container.style.filter = "grayscale(10%) invert(20%) brightness(80%) contrast(130%) sepia(40%) hue-rotate(120deg) blur(0px) saturate(400%)";
+
 		this.getPane().appendChild(this._container);
 	},
 

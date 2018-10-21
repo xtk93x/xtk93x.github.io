@@ -2,23 +2,14 @@ body {
     margin: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 14px;
+    display: flex;
 }
 
 #map {
     height: 100vh;
-    width: 100%;
+    width: 50%;
 }
-
-#sliders-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 9999;
-    margin: 20px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 5px;
+#map-cf {
+    height: 100vh;
+    width: 50%;
 }
