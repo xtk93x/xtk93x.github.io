@@ -18,8 +18,8 @@ let sepia = '0%';
 let updateMyTiles = function () {
     newFilter = [
         `blur:${blur}`,
-        `grayscale:${gray}`,
         `invert:${invert}`,
+        `grayscale:${gray}`,
         `bright:${bright}`,
         `contrast:${contrast}`,
         `hue:${hue}`,
@@ -29,8 +29,15 @@ let updateMyTiles = function () {
     ];
     tileLayer.updateFilter(newFilter);
 
+    // Filter out if default value.
     filterSettingsBox.innerHTML = `
-        let myFilter = [${newFilter.map(o => `'${o}'`)}];
+        let myFilter = [${newFilter.filter(o => {
+            return(![
+                'blur:0px','grayscale:0%','invert:0%',
+                'bright:100%','contrast:100%','hue:0deg',
+                'opacity:100%','saturate:100%','sepia:0%'
+            ].includes(o))
+        }).map(o => `'${o}'`)}];
     `;
 }
 
