@@ -1,4 +1,4 @@
-let map = L.map('map').setView([51.505, -0.09], 14);
+let map = L.map('map', { zoomControl: false }).setView([51.505, -0.09], 14);
 
 let tileLayer = L.tileLayer.colorFilter('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
     attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia</a>',
@@ -16,17 +16,30 @@ let saturate = '100%';
 let sepia = '0%';
 
 let updateMyTiles = function () {
-    tileLayer.updateFilter([
-        `blur:${blur}`, 
-        `grayscale:${gray}`, 
-        `invert:${invert}`, 
-        `bright:${bright}`, 
-        `contrast:${contrast}`, 
+    newFilter = [
+        `blur:${blur}`,
+        `grayscale:${gray}`,
+        `invert:${invert}`,
+        `bright:${bright}`,
+        `contrast:${contrast}`,
         `hue:${hue}`,
-        `opacity:${opacity}`, 
+        `opacity:${opacity}`,
         `saturate:${saturate}`,
         `sepia:${sepia}`,
-    ]);
+    ];
+    tileLayer.updateFilter(newFilter);
+
+    filterSettingsBox.innerHTML = `
+        let myFilter = [${newFilter.map(o => `'${o}'`)}];
+    `;
+}
+
+let updateBasemapUrl = function () {
+    map.removeLayer(tileLayer);
+    tileLayer =  L.tileLayer.colorFilter(document.getElementById('url-input').value, {
+        attribution: 'Development Only - Don\'t forget the attribution for production :)'
+    }).addTo(map);
+    updateMyTiles();
 }
 
 /* Blur slider */
@@ -118,3 +131,38 @@ sepiaSlider.addEventListener('input', function (e) {
     sepia = value + '%';
     updateMyTiles();
 });
+
+/* Filter Settings Box */
+let filterSettingsBox = document.getElementById('filter-settings');
+
+/* Reset Settings */
+let resetSettings = function () {
+    blur = '0px';
+    blurSlider.value = '0';
+    blurLabel.textContent = '0px';
+    opacity = '100%';
+    opacitySlider.value = '100';
+    opacityLabel.textContent = '100%';
+    invert = '0%';
+    invertSlider.value = '0';
+    invertLabel.textContent = '0%';
+    bright = '100%';
+    brightnessSlider.value = '100';
+    brightnessLabel.textContent = '100%';
+    contrast = '100%';
+    contrastSlider.value = '100';
+    contrastLabel.textContent = '100%';
+    gray = '0%';
+    grayscaleSlider.value = '0';
+    grayscaleLabel.textContent = '0%';
+    hue = '0deg';
+    hueSlider.value = '0';
+    hueLabel.textContent = '0deg';
+    saturate = '100%';
+    saturateSlider.value = '100';
+    saturateLabel.textContent = '100%';
+    sepia = '0%';
+    sepiaSlider.value = '0';
+    sepiaLabel.textContent = '0%';
+    updateMyTiles();
+}
